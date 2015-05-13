@@ -48,9 +48,7 @@ console.log("arr.includes(\"James\"): " + includesTest3);
  */
 if (!Array.prototype.findPoly) {
     Array.prototype.findPoly = function (query) {
-        if (arr.includesPoly(query)) {
-            return query;
-        };
+        if (arr.includesPoly(query)) return query
         return undefined;
     };
 }
