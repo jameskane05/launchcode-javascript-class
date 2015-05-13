@@ -48,7 +48,9 @@ console.log("arr.includes(\"James\"): " + includesTest3);
  */
 if (!Array.prototype.findPoly) {
     Array.prototype.findPoly = function (query) {
-        if (arr.includesPoly(query)) return query
+        if (arr.includesPoly(query)) {
+            return query;
+        };
         return undefined;
     };
 }
@@ -79,37 +81,3 @@ arr = [1, 2, 3, 3, 4, 5, "James"];
 findAllArr = arr.findAllPoly(3);
 console.log("newArr: " + arr);
 console.log(".findAll(3) arr: " + findAllArr);
-
-
-
-DOMUtils = {
-
-    flattenDOM: function (node) {
-
-        node = node || document;
-
-        return node.children;
-
-    },
-
-    getIds: function (node) {
-
-        /* From the pset: "To check this, you'll need to use the `instanceof` operator with the appropriate constructor name (which you're left to figure out)" - but isn't this line just as effective? */
-
-        if (!window.hasOwnProperty(node))
-
-        node = node || document;
-
-
-
-        return node.getIds;
-
-    },
-
-    getClasses: function (node) {
-
-        return node.getClasses();
-
-    }
-
-};
