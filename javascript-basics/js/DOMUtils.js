@@ -28,12 +28,15 @@ DOMUtils = {
 
         var flatDOM = DOMUtils.flattenDOM(node);
 
-        var idList = flatDOM.map(
+        var idArr = flatDOM.filter(
+            function (element) {
+                return element.id.length > 0
+        }).map(
             function (arg) {
                 return arg.id;
             });
 
-        return idList;
+        return idArr;
     },
 
 
@@ -43,13 +46,15 @@ DOMUtils = {
 
         var flatDOM = DOMUtils.flattenDOM(node);
 
-        var classArr = flatDOM.map(
+        var classArr = flatDOM.filter(
+            function (element) {
+                return element.className.length > 0
+        }).map(
             function(arg) {
                 return arg.classList;
             });
 
         return classArr;
-
     }
 
 };
