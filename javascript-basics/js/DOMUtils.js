@@ -17,6 +17,7 @@ DOMUtils = {
 
         nodeArr.push([node]);
         return Array.prototype.concat.apply([], nodeArr);
+
     },
 
     getIds: function (node) {
