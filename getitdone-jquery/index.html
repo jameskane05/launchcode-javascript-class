@@ -10,17 +10,26 @@
     <script type="text/javascript" src="lib/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/getitdone.js"></script>
 
-    <title>E pluribus unum!</title>
+    <title>Front-end TODO List</title>
 </head>
 <body>
     <h1>Front-end TODO List</h1>
     <p>What do you need to get done today?</p>
-    <form id="TODO-form">
-        <input type="text" value="Enter TODO" />
+    <form id="taskForm" action="js/getitdone.js">
+        <input id="taskEntry" type="text" name="task" value=" Enter TODO" />
         <input type="submit" value="Submit"/>
     </form>
-    <div id="TODO-list">
-
+    <h2>Tasks</h2>
+    <div id="list">
+        <ul>
+            <!-- new tasks entered will go here! -->
+        </ul>
+    </div>
+    <h2>Completed tasks</h2>
+    <div id="done">
+        <ul>
+            <!-- new tasks entered will go here! -->
+        </ul>
     </div>
 </body>
 </html>

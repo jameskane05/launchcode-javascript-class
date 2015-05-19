@@ -2,9 +2,34 @@ body {
     padding-left: 2em;
 }
 
-#TODO-list {
-    margin: 1.5em 2em 1.5em 0em;
+#taskEntry {
+    width: 400px;
+}
+
+#list, #done {
+    margin: 1em 2em 1.5em 0em;
     border-style: solid;
     border-width: 1px;
-    height: 400px;
+    padding-top: 1.5em;
+    height: 200px;
+    width: 70%;
+    overflow: scroll;
+
+}
+
+ul {
+    display-list: none;
+}
+
+ul li {
+    font-size: 24px;
+}
+
+.glyphicon {
+    margin-left: 2em;
+}
+
+h2 {
+    margin-top: 1em;
+    font-size: 2em;
 }
