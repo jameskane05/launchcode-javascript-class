@@ -4,32 +4,57 @@ body {
 
 #taskEntry {
     width: 400px;
+    padding-left: .25em;
 }
 
 #list, #done {
     margin: 1em 2em 1.5em 0em;
     border-style: solid;
     border-width: 1px;
-    padding-top: 1.5em;
+    padding-top: 1em;
     height: 200px;
     width: 70%;
     overflow: scroll;
-
 }
 
-ul {
-    display-list: none;
+#list {
+    text-decoration: none;
+}
+
+#done ul li {
+    text-decoration: line-through;
 }
 
 ul li {
-    font-size: 24px;
+    font-size: 1.5em;
 }
 
 .glyphicon {
-    margin-left: 2em;
+    margin-left: 1.5em;
 }
+
 
 h2 {
     margin-top: 1em;
     font-size: 2em;
+}
+
+.glyphicon, .date, .time {
+    float: right;
+}
+
+.time {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    font-size: .75em;
+}
+
+.date {
+    margin-left: 2em;
+    font-size: .75em;
+}
+
+p {
+    margin: 1em 0em;
+
 }
