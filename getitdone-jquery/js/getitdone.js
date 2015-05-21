@@ -1,13 +1,17 @@
 $(document).ready(function() {	// waits for whole page to load
     $('#taskForm').submit(
         function() {
-            var task = $('#taskEntry').val();  // store the submitted value
+            var task = $('#taskEntry').val();  // store the user submitted value
 
-            if (task != '') {
+            if (task != '') {  //only perform if user entered input
+
                 // func to run when tasks are completed
                 var taskDone = function () {
                     $('#done ul').append(this.parentNode);
-                    $('.glyphicon-ok', '#done').remove();
+                        /* this will refer to the obj on which .click is called,
+                           a glyphicon span element whose parent node li contains
+                           the entire newTask obj */
+                    $('.glyphicon-ok', '#done').remove();  //remove any elements with class glyphicon-ok
                     $(newTask).append(repeatIcon.click(taskRepeat));
                 };
 
@@ -39,16 +43,14 @@ $(document).ready(function() {	// waits for whole page to load
                 if (currDate.getMinutes() < 10) var minutes = "0" + currDate.getMinutes();
                 else minutes = currDate.getMinutes();
 
-                //format current time, wrap as jQuery obj
-                var timeEntered = $('<span class="time">' + (currDate.getHours() % 12) + ':' + minutes + amPm + '</span>');
-
-                //format current date, wrap as jQuery obj
-                var dateEntered = $('<span class="date">' + currDate.getMonth() + '/'
+                //format current time and date, wrap as jQuery obj
+                var time = $('<span class="time">' + (currDate.getHours() % 12) + ':' + minutes + amPm + '</span>');
+                var date = $('<span class="date">' + currDate.getMonth() + '/'
                     + currDate.getDate() + '/' + currDate.getFullYear() + '</span>');
 
                 //new task HTML w/ icons appended
                 var newTask = $('<li class="task">' + task + '</li>')
-                    .append(timeEntered, dateEntered, deleteIcon, doneIcon);
+                    .append(time, date, deleteIcon, doneIcon);
 
                 $('#list ul').append(newTask);  // add newTask
             }
