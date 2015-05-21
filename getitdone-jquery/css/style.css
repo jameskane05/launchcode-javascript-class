@@ -4,7 +4,8 @@ body {
 }
 
 #taskEntry {
-    width: 400px;
+    max-width: 400px;
+    width: 60%;
     padding-left: .25em;
     margin-right: 1em;
 }
@@ -13,27 +14,29 @@ body {
     margin: 1em 2em 1.5em 0em;
     border-style: solid;
     border-width: 1px;
-    padding-top: 1em;
-    height: 200px;
-    width: 70%;
-    max-width: 700px;
-    overflow: scroll;
+    padding-top: .5em;
+    height: 210px;
+    max-width: 850px;
+    width: 90%
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 #list {
     text-decoration: none;
 }
 
-#done ul li {
+#done .taskInfo {
     text-decoration: line-through;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 1em;
 }
 
 ul li {
     font-size: 1.5em;
-}
-
-.glyphicon {
-    margin-left: 1.5em;
 }
 
 
@@ -42,22 +45,54 @@ h2 {
     font-size: 2em;
 }
 
-.glyphicon, .date, .time {
-    float: right;
+
+.container {
+    width: 98%;
+    margin-right: 1em;
+    margin-left: 1em;
 }
 
-.time {
-    margin-left: 1.5em;
-    margin-right: 1.5em;
+.time, .date {
     font-size: .75em;
+    vertical-align: text-bottom;
+    line-height: 2.5em;
 }
 
-.date {
-    margin-left: 2em;
-    font-size: .75em;
-}
+
 
 p {
     margin: 1em 0em;
 
+}
+
+.glyphicon {
+    padding-top: .1em;
+    line-height: 1.5em;
+}
+
+.glyphicon-trash {
+    padding-left: 1.6em;
+    padding-right: .1em;
+}
+
+.glyphicon-ok, .glyphicon-repeat {
+    padding-left: .3em;
+    padding-right: 0;
+}
+
+.col-lg-6 {
+    margin-left: 0;
+    padding: 0;
+}
+
+div.col-sm-3.date {
+    padding-right: 1em;
+}
+
+.taskInfo {
+    padding-left: 0;
+}
+
+.row {
+    overflow: hidden;
 }
