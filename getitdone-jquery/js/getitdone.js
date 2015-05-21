@@ -18,33 +18,42 @@ $(document).ready(function() {	// waits for whole page to load
                     $(newTask).append(doneIcon.click(taskDone));
                 };
 
-                // func that removes
+                // func that removes tasks
                 var taskDelete = function () {
                     $(this.parentNode).remove();
-                }
+                };
 
-                //glyphicon HTML vars and .click callback funcs
+                //glyphicon HTML and .click callback funcs
                 var deleteIcon = $('<span class="glyphicon glyphicon-trash"></span>').click(taskDelete);
                 var doneIcon = $('<span class="glyphicon glyphicon-ok"></span>').click(taskDone);
                 var repeatIcon = $('<span class="glyphicon glyphicon-repeat"></span>').click(taskRepeat);
-                var currDate = new Date($.now());
 
-                if (currDate.getHours() > 12) var AMPM = " p.m.";
-                else var AMPM = " a.m.";
+                var currDate = new Date($.now());  //get current date
 
-                if (currDate.getMinutes() < 10) var minutes = "0" + currDate.getMinutes()
+                //determine AM or PM, store as strings
+                var amPm;
+                if (currDate.getHours() >= 12) amPm = " p.m.";
+                else amPm = " a.m.";
+
+                //if single digit minutes, display w/ 0 in front of the single digit
+                if (currDate.getMinutes() < 10) var minutes = "0" + currDate.getMinutes();
                 else minutes = currDate.getMinutes();
 
-                var timeEntered = $('<span class="time">' + (currDate.getHours() % 12) + ':' + minutes + AMPM + '</span>');
+                //format current time, wrap as jQuery obj
+                var timeEntered = $('<span class="time">' + (currDate.getHours() % 12) + ':' + minutes + amPm + '</span>');
 
-                var dateEntered = $('<span class="date">' + currDate.getMonth() + '/' + currDate.getDate() + '/' + currDate.getFullYear() + '</span>');
+                //format current date, wrap as jQuery obj
+                var dateEntered = $('<span class="date">' + currDate.getMonth() + '/'
+                    + currDate.getDate() + '/' + currDate.getFullYear() + '</span>');
 
                 //new task HTML w/ icons appended
-                var newTask = $('<li class="task">' + task + '</li>').append(timeEntered, dateEntered, deleteIcon, doneIcon);
+                var newTask = $('<li class="task">' + task + '</li>')
+                    .append(timeEntered, dateEntered, deleteIcon, doneIcon);
 
                 $('#list ul').append(newTask);  // add newTask
             }
 
+            //don't return to server
             return false;
     })
 })
